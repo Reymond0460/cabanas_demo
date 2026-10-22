@@ -1,0 +1,14 @@
+{
+  "name": "cabanas-el-refugio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Maqueta de reservas para cabañas (HTML, CSS y JavaScript)",
+  "scripts": {
+    "css": "tailwindcss -c tailwind.config.js -i css/tailwind.src.css -o css/tailwind.css --minify",
+    "css:watch": "tailwindcss -c tailwind.config.js -i css/tailwind.src.css -o css/tailwind.css --watch",
+    "servir": "python -m http.server 5173"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

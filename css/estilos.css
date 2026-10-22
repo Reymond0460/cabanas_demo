@@ -1,0 +1,17 @@
+/* =====================================================================
+   ESTILOS DE CABAÑAS EL REFUGIO  ·  archivo principal
+   Cada archivo de esta carpeta (css/) se ocupa de una parte de la página.
+   El ORDEN importa: los últimos pueden sobrescribir a los primeros.
+
+   ¿Qué quieres cambiar?                          Archivo
+   ---------------------------------------------------------------------
+   Utilidades de diseño (colores, espacios, etc.)  tailwind.css (GENERADO, no editar)
+   Calendario de fechas (colores, ocupados) ....... 01-calendario.css
+   Animaciones y detalles (preguntas frecuentes) .. 02-animaciones.css
+
+   Para cambiar colores o tipografías de la marca: tailwind.config.js
+   y luego  npm run css  (ver README.md)
+   ===================================================================== */
+@import url("tailwind.css");
+@import url("01-calendario.css");
+@import url("02-animaciones.css");

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cabañas El Refugio | Arriendo Turístico</title>
+  <meta name="description" content="Cabañas en bosque nativo. Reserva online con abono.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="bg-sand-50 text-forest-900 antialiased font-sans flex flex-col min-h-screen">
+
+    <!-- Navegación -->
+    <nav class="bg-sand-50/90 backdrop-blur-md fixed w-full z-50 top-0 border-b border-sand-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a aria-label="Ir al inicio" class="flex items-center cursor-pointer group focus:outline-none focus-visible:ring-2 focus-visible:ring-wood-500 rounded-lg p-1" href="index.html">
+                    <i class="fa-solid fa-leaf text-forest-800 text-xl mr-3 group-hover:-rotate-12 transition-transform opacity-80"></i>
+                    <span class="font-serif font-semibold text-2xl tracking-tight text-forest-900">El Refugio</span>
+                </a>
+                <div class="flex space-x-4 items-center">
+                    <a href="index.html" class="text-forest-600 hover:text-wood-600 px-3 py-2 text-sm font-medium transition hidden md:block focus:outline-none focus-visible:ring-2 focus-visible:ring-wood-500 rounded-lg">Inicio</a>
+                    <a href="#reservar" class="text-forest-600 hover:text-wood-600 px-3 py-2 text-sm font-medium transition hidden md:block focus:outline-none focus-visible:ring-2 focus-visible:ring-wood-500 rounded-lg">Reservar</a>
+                    <a aria-label="Panel de Administración" href="admin.html" class="bg-forest-900 text-sand-50 hover:bg-forest-800 px-5 py-2.5 rounded-full text-sm font-medium transition shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-forest-900">
+                        <i class="fa-solid fa-lock mr-2 text-xs"></i> Admin
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== PÁGINA PÚBLICA ==================== -->
+    <div id="public-view" class="block flex-grow">
+
+        <!-- Hero Section -->
+        <div class="relative h-[90vh] md:h-screen flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(rgba(15, 26, 20, 0.4), rgba(15, 26, 20, 0.6)), url('https://images.unsplash.com/photo-1449844908441-8829872d2607?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+            <div class="text-center px-4 z-10 fade-in-up visible w-full max-w-4xl">
+                <span class="text-sand-200 uppercase tracking-widest text-xs md:text-sm font-semibold mb-4 block">Desconecta en el sur</span>
+                <h1 class="font-serif text-4xl md:text-7xl font-light text-sand-50 mb-6 drop-shadow-lg leading-tight">El refugio que <br class="hidden md:block"/> tu descanso merece</h1>
+                <p class="text-base md:text-xl text-sand-100 mb-10 max-w-2xl mx-auto font-light drop-shadow">Rodeado de bosque nativo y comodidad premium. Un espacio pensado para la calma y la conexión.</p>
+            </div>
+            
+            <!-- Widget de búsqueda flotante -->
+            <div class="absolute -bottom-12 md:-bottom-8 left-1/2 transform -translate-x-1/2 w-[90%] max-w-4xl bg-white rounded-2xl shadow-2xl p-4 hidden md:flex md:flex-row items-center justify-between gap-4 md:gap-6 z-20 border border-sand-100">
+                <div class="flex items-center gap-4 px-2 md:px-4 text-forest-800 w-full md:w-auto">
+                    <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-sand-100 flex items-center justify-center flex-shrink-0">
+                        <i class="fa-regular fa-calendar text-lg md:text-xl text-forest-600"></i>
+                    </div>
+                    <div class="flex-grow text-left">
+                        <h4 class="font-serif font-semibold text-base md:text-lg leading-tight">¿Cuándo quieres venir?</h4>
+                        <p class="text-xs md:text-sm text-gray-500">Consulta disponibilidad al instante</p>
+                    </div>
+                </div>
+                <a href="#reservar" class="w-full md:w-auto bg-forest-900 hover:bg-forest-800 text-white text-center font-medium py-3 px-8 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-forest-900">Ver Disponibilidad</a>
+            </div>
+        </div>
+
+        <!-- Por qué reservar directo -->
+        <div class="pt-14 md:pt-24 pb-10 md:pb-16 bg-sand-50">
+            <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 text-center fade-in-up">
+                <div class="p-2 md:p-4 grid grid-cols-[auto_1fr] md:block gap-x-4 items-center text-left md:text-center" id="feature-bath-card">
+                    <div class="w-14 h-14 md:w-16 md:h-16 row-span-2 md:mx-auto bg-sand-200/60 rounded-full flex items-center justify-center md:mb-6">
+                        <i id="feature-bath-icon" class="fa-solid fa-hot-tub-person text-2xl text-forest-800 opacity-80"></i>
+                    </div>
+                    <h3 id="feature-bath-title" class="font-serif text-xl font-semibold mb-2 text-forest-900">Tinaja de Leña</h3>
+                    <p id="feature-bath-desc" class="text-forest-600 text-sm">Relájate bajo las estrellas en nuestra tinaja privada de ciprés.</p>
+                </div>
+                <div class="p-2 md:p-4 grid grid-cols-[auto_1fr] md:block gap-x-4 items-center text-left md:text-center" id="feature-wifi-card">
+                    <div class="w-14 h-14 md:w-16 md:h-16 row-span-2 md:mx-auto bg-sand-200/60 rounded-full flex items-center justify-center md:mb-6">
+                        <i id="feature-wifi-icon" class="fa-solid fa-wifi text-2xl text-forest-800 opacity-80"></i>
+                    </div>
+                    <h3 id="feature-wifi-title" class="font-serif text-xl font-semibold mb-2 text-forest-900">Conexión Starlink</h3>
+                    <p id="feature-wifi-desc" class="text-forest-600 text-sm">Desconéctate de la rutina, no del mundo. Internet satelital de alta velocidad.</p>
+                </div>
+                <div class="p-2 md:p-4 grid grid-cols-[auto_1fr] md:block gap-x-4 items-center text-left md:text-center" id="feature-pet-card">
+                    <div class="w-14 h-14 md:w-16 md:h-16 row-span-2 md:mx-auto bg-sand-200/60 rounded-full flex items-center justify-center md:mb-6">
+                        <i id="feature-pet-icon" class="fa-solid fa-paw text-2xl text-forest-800 opacity-80"></i>
+                    </div>
+                    <h3 id="feature-pet-title" class="font-serif text-xl font-semibold mb-2 text-forest-900">Pet Friendly</h3>
+                    <p id="feature-pet-desc" class="text-forest-600 text-sm">Tus mascotas son bienvenidas a disfrutar de la naturaleza.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            
+            <!-- Galería Mosaico Editorial -->
+            <div class="mb-24 fade-in-up">
+                <div class="flex justify-between items-end mb-8">
+                    <div>
+                        <h2 class="font-serif text-4xl text-forest-900">El Espacio</h2>
+                        <p class="text-forest-600 mt-2">Diseñado para integrarse con la naturaleza. (Toca para ampliar)</p>
+                    </div>
+                </div>
+                
+                <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-4 md:auto-rows-[290px] gap-4 gallery-container [grid-auto-flow:dense]"></div>
+            </div>
+        </div>
+
+        <!-- Ubicación -->
+        <div class="bg-sand-100 py-16 border-y border-sand-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-up">
+                <div class="flex flex-col lg:flex-row gap-12 items-center">
+                    <div class="lg:w-1/3">
+                        <h2 class="font-serif text-4xl text-forest-900 mb-4">Ubicación</h2>
+                        <p class="text-forest-600 mb-8 leading-relaxed">Sumérgete en lo profundo del bosque sin perder la conectividad. Un oasis accesible pero alejado del ruido.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center p-4 bg-white rounded-xl shadow-sm">
+                                <div class="w-10 h-10 bg-sand-50 rounded-full flex items-center justify-center mr-4 text-forest-600"><i class="fa-solid fa-plane"></i></div>
+                                <div><p class="text-xs text-forest-500 uppercase tracking-wider font-semibold">Aeropuerto</p><p class="text-forest-900 font-medium">A 45 minutos</p></div>
+                            </div>
+                            <div class="flex items-center p-4 bg-white rounded-xl shadow-sm">
+                                <div class="w-10 h-10 bg-sand-50 rounded-full flex items-center justify-center mr-4 text-forest-600"><i class="fa-solid fa-city"></i></div>
+                                <div><p class="text-xs text-forest-500 uppercase tracking-wider font-semibold">Centro ciudad</p><p class="text-forest-900 font-medium">A 15 minutos</p></div>
+                            </div>
+                            <div class="flex items-center p-4 bg-white rounded-xl shadow-sm">
+                                <div class="w-10 h-10 bg-sand-50 rounded-full flex items-center justify-center mr-4 text-forest-600"><i class="fa-solid fa-tree"></i></div>
+                                <div><p class="text-xs text-forest-500 uppercase tracking-wider font-semibold">Parque Nacional</p><p class="text-forest-900 font-medium">A 30 minutos</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:w-2/3 w-full h-[400px] bg-sand-200 rounded-2xl overflow-hidden shadow-inner relative flex items-center justify-center border border-sand-300">
+                        <div class="text-center opacity-70">
+                            <i class="fa-solid fa-map-location-dot text-5xl text-forest-800 mb-3"></i>
+                            <p class="text-forest-900 font-medium">Zona Sur de Chile — Valle Nativo</p>
+                            <p class="text-xs text-forest-600 mt-1">La dirección exacta se envía al confirmar la reserva</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarifas -->
+        <div class="bg-forest-900 text-sand-50 py-24">
+            <div class="max-w-5xl mx-auto px-4 fade-in-up">
+                <div class="text-center mb-16">
+                    <h2 class="font-serif text-4xl mb-4">Temporadas y Valores</h2>
+                    <div class="w-12 h-1 bg-wood-600 mx-auto rounded"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                    <!-- Baja -->
+                    <div class="bg-forest-800 rounded-3xl p-8 border border-forest-700 flex flex-col justify-between">
+                        <div>
+                            <span class="text-wood-500 font-medium text-sm tracking-wider uppercase mb-2 block">Marzo - Diciembre</span>
+                            <h3 class="font-serif text-3xl mb-4">Temporada Baja</h3>
+                            <div class="text-5xl font-light mb-6"><span id="display-rate-low">$60.000</span> <span class="text-lg text-forest-100 font-sans opacity-70">/noche</span></div>
+                            <ul class="space-y-4 text-forest-100 mb-8">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-sand-300 mr-3"></i> Capacidad hasta 4 personas</li>
+                                <li class="flex items-center" id="display-wifi-low-item"><i class="fa-solid fa-check text-sand-300 mr-3"></i> <span id="display-wifi-low-text">WiFi Starlink incluido</span></li>
+                                <li class="flex items-center" id="display-bath-low-item"><i class="fa-solid fa-plus text-sand-300 mr-3"></i> <span id="display-bath-low-text">Tinaja opcional ($25.000 x uso)</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Alta -->
+                    <div class="bg-sand-50 text-forest-900 rounded-3xl p-8 shadow-2xl transform md:-translate-y-6 flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-wood-600 text-white text-xs font-bold px-4 py-2 rounded-bl-xl">MÁS SOLICITADA</div>
+                        <div>
+                            <span class="text-wood-600 font-medium text-sm tracking-wider uppercase mb-2 block">Enero - Febrero & Feriados</span>
+                            <h3 class="font-serif text-3xl mb-4">Temporada Alta</h3>
+                            <div class="text-5xl font-light mb-6"><span id="display-rate-high">$95.000</span> <span class="text-lg text-forest-600 font-sans">/noche</span></div>
+                            <ul class="space-y-4 text-forest-800 mb-8">
+                                <li class="flex items-center"><i class="fa-solid fa-check text-wood-600 mr-3"></i> Capacidad hasta 4 personas</li>
+                                <li class="flex items-center" id="display-wifi-high-item"><i class="fa-solid fa-check text-wood-600 mr-3"></i> <span id="display-wifi-high-text">WiFi Starlink incluido</span></li>
+                                <li class="flex items-center" id="display-bath-high-item"><i class="fa-solid fa-gift text-wood-600 mr-3"></i> <span id="display-bath-high-text">1 Uso de tinaja incluido por estadía</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reservas y Calendario -->
+        <div id="reservar" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 scroll-mt-20 fade-in-up">
+            <div class="mb-12">
+                <h2 class="font-serif text-4xl text-forest-900 mb-2">Reserva tu estadía</h2>
+                <p class="text-forest-600">Selecciona las fechas en el calendario. Solo requerimos un abono para confirmar.</p>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
+                <!-- Columna Izquierda: Calendario -->
+                <div class="lg:w-7/12 xl:w-2/3">
+                    <div class="bg-white p-4 md:p-8 rounded-3xl shadow-sm border border-sand-200 w-full overflow-hidden">
+                        <input type="text" id="public-calendar" class="hidden">
+                        <p id="date-error" role="alert" class="hidden mt-4 text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg px-3 py-2"></p>
+                        
+                        <div class="flex flex-wrap justify-start gap-4 md:gap-6 text-xs md:text-sm text-forest-600 mt-6 pt-6 border-t border-sand-100">
+                            <span class="flex items-center"><span class="w-4 h-4 rounded bg-forest-600 inline-block mr-2"></span> Seleccionado</span>
+                            <span class="flex items-center"><span class="w-4 h-4 rounded border border-gray-200 bg-sand-50 inline-block mr-2"></span> Disponible</span>
+                            <span class="flex items-center"><span class="w-4 h-4 rounded border border-gray-200 bg-gray-100 inline-block mr-2 relative overflow-hidden"><div class="absolute w-[150%] h-[1px] bg-gray-400 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -rotate-45"></div></span> Ocupado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Formulario Sticky -->
+                <div class="lg:w-5/12 xl:w-1/3 relative z-10">
+                    <div class="sticky top-24 bg-white p-6 md:p-8 rounded-3xl shadow-xl border border-sand-200">
+                        <h3 class="font-serif text-2xl text-forest-900 mb-6 border-b border-sand-100 pb-4">Detalle de Reserva</h3>
+                        
+                        <div id="booking-summary" class="hidden mb-6">
+                            <div class="flex justify-between items-center mb-3 text-sm">
+                                <span class="text-forest-600">Fechas</span>
+                                <span id="summary-dates" class="font-medium text-forest-900 text-right"></span>
+                            </div>
+                            <div class="flex justify-between items-center mb-2 pb-2 text-sm">
+                                <span class="text-forest-600">Subtotal (<span id="summary-nights">0</span> noches)</span>
+                                <span id="summary-total-calc" class="font-medium text-forest-900"></span>
+                            </div>
+
+                            <div id="tub-row" class="hidden">
+                                <div class="flex justify-between items-center mb-2 pb-2 text-sm">
+                                    <span class="text-forest-600">Tinaja de leña (extra)</span>
+                                    <span id="summary-tub" class="font-medium text-forest-900"></span>
+                                </div>
+                            </div>
+
+                            <!-- Campo Cupón de Descuento -->
+                            <div class="py-3 border-y border-sand-100 my-3">
+                                <div class="flex gap-2">
+                                    <input type="text" id="coupon-input" placeholder="Código de cupón" class="flex-grow px-3 py-2 bg-sand-50 border border-sand-200 rounded-lg text-xs uppercase font-medium focus:ring-2 focus:ring-forest-600 outline-none">
+                                    <button type="button" onclick="applyCoupon()" class="bg-forest-800 hover:bg-forest-900 text-white px-3 py-2 rounded-lg text-xs font-medium transition">Aplicar</button>
+                                </div>
+                                <div id="coupon-message" class="text-xs mt-1.5 hidden"></div>
+                            </div>
+                            
+                            <div id="discount-row" class="hidden flex justify-between items-center mb-3 text-sm text-green-700 font-medium">
+                                <span>Descuento aplicado</span>
+                                <span id="summary-discount">-$0</span>
+                            </div>
+
+                            <div class="flex justify-between items-center mb-6">
+                                <span class="text-forest-900 font-semibold text-lg">Total a pagar</span>
+                                <span id="summary-total" class="font-serif text-2xl text-forest-900 font-bold">$0</span>
+                            </div>
+                            
+                            <div class="bg-forest-50 p-5 rounded-2xl border border-forest-100 flex flex-col justify-between items-start shadow-inner">
+                                <div class="w-full flex justify-between items-center mb-1">
+                                    <span class="block text-base font-bold text-forest-900">Abono para reservar (<span id="display-deposit-percent">50%</span>)</span>
+                                    <span id="summary-deposit" class="font-bold text-2xl text-wood-700">$0</span>
+                                </div>
+                                <span class="block text-xs text-forest-600">Se requiere abono para confirmar. El saldo se cancela al Check-in.</span>
+                            </div>
+                        </div>
+                        
+                        <div id="no-dates-msg" class="bg-sand-50 p-8 rounded-2xl border border-sand-200 text-center mb-6 flex flex-col items-center justify-center min-h-[200px]">
+                            <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm text-sand-300">
+                                <i class="fa-regular fa-calendar-check text-2xl"></i>
+                            </div>
+                            <h4 class="font-medium text-forest-900 mb-1">Aún no hay fechas</h4>
+                            <p class="text-sm text-forest-600">Selecciona tu entrada y salida en el calendario para ver el total.</p>
+                        </div>
+
+                        <form id="booking-form" onsubmit="processBooking(event)" class="space-y-4 opacity-50 pointer-events-none transition-opacity duration-300">
+                            <div>
+                                <label class="block text-sm font-medium text-forest-800 mb-1.5">Nombre Completo</label>
+                                <input type="text" id="client-name" required class="w-full px-4 py-3 bg-white border border-sand-200 rounded-xl focus:ring-2 focus:ring-forest-600 focus:border-forest-600 outline-none transition-shadow">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-forest-800 mb-1.5">Correo Electrónico</label>
+                                <input type="email" id="client-email" required class="w-full px-4 py-3 bg-white border border-sand-200 rounded-xl focus:ring-2 focus:ring-forest-600 focus:border-forest-600 outline-none transition-shadow">
+                            </div>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-sm font-medium text-forest-800 mb-1.5">Teléfono</label>
+                                    <input type="tel" id="client-phone" required placeholder="+56 9 ..." class="w-full px-4 py-3 bg-white border border-sand-200 rounded-xl focus:ring-2 focus:ring-forest-600 focus:border-forest-600 outline-none transition-shadow">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-forest-800 mb-1.5">Huéspedes</label>
+                                    <select id="client-guests" class="w-full px-4 py-3 bg-white border border-sand-200 rounded-xl focus:ring-2 focus:ring-forest-600 outline-none"><option>1</option><option>2</option><option>3</option><option selected>4</option></select>
+                                </div>
+                            </div>
+
+                            <label id="tub-option" class="hidden items-center gap-3 p-3 bg-sand-50 rounded-xl border border-sand-200 text-sm text-forest-800 cursor-pointer">
+                                <input type="checkbox" id="opt-tub" onchange="refreshSelection()" class="rounded text-forest-600 focus:ring-forest-500 w-4 h-4">
+                                <span class="flex-grow"><i class="fa-solid fa-hot-tub-person text-forest-600 mr-1"></i> Agregar tinaja de leña</span>
+                                <span id="tub-option-price" class="text-xs font-semibold text-forest-600"></span>
+                            </label>
+
+                            <!-- Checkbox de Políticas de Privacidad -->
+                            <div class="flex items-start mt-4 pt-2">
+                                <input type="checkbox" id="accept-privacy" required class="mt-1.5 mr-3 text-forest-600 focus:ring-forest-500 border-gray-300 rounded cursor-pointer w-4 h-4">
+                                <label for="accept-privacy" class="text-xs text-forest-600 leading-relaxed cursor-pointer">
+                                    Acepto la <a target="_blank" rel="noopener" type="button" href="politica-de-privacidad.html" class="text-forest-900 font-medium underline hover:text-wood-600">Política de Privacidad</a> y los <a target="_blank" rel="noopener" type="button" href="terminos.html" class="text-forest-900 font-medium underline hover:text-wood-600">Términos de Uso</a>.
+                                </label>
+                            </div>
+
+                            <button type="submit" class="w-full bg-forest-900 hover:bg-forest-800 text-sand-50 font-medium py-4 px-4 rounded-xl shadow-lg transition-transform transform active:scale-95 flex justify-center items-center mt-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-forest-900">
+                                <i class="fa-solid fa-lock mr-2 text-sm opacity-70"></i> Pagar Abono Seguro
+                            </button>
+                            <p class="text-xs text-center text-forest-500 mt-3 flex items-center justify-center"><i class="fa-solid fa-shield-halved mr-1.5"></i> Pago simulado para prueba</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-sand-200 fade-in-up">
+            <h2 class="font-serif text-3xl text-center text-forest-900 mb-10">Preguntas Frecuentes</h2>
+            <div class="space-y-4">
+                <details class="bg-white rounded-xl shadow-sm border border-sand-100 group">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-forest-900 focus:outline-none focus:ring-2 focus:ring-forest-500 rounded-xl">
+                        <span>¿Aceptan mascotas (Pet Friendly)?</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-sm text-forest-500"></i></span>
+                    </summary>
+                    <div id="faq-pet-answer" class="text-forest-600 text-sm p-5 pt-0 border-t border-sand-50 mt-2 leading-relaxed">
+                        Lamentablemente, para proteger la fauna nativa del sector y por políticas del recinto, no podemos aceptar mascotas en esta propiedad.
+                    </div>
+                </details>
+                <details class="bg-white rounded-xl shadow-sm border border-sand-100 group">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-forest-900 focus:outline-none focus:ring-2 focus:ring-forest-500 rounded-xl">
+                        <span id="faq-bath-title">¿Cómo funciona el servicio de tinaja?</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-sm text-forest-500"></i></span>
+                    </summary>
+                    <div id="faq-bath-answer" class="text-forest-600 text-sm p-5 pt-0 border-t border-sand-50 mt-2 leading-relaxed">
+                        En temporada alta, incluimos 1 uso gratuito. En temporada baja tiene un valor adicional. Nosotros nos encargamos de prepararla, limpiarla y encenderla para que tú solo disfrutes. Demora aprox. 4 horas en calentar.
+                    </div>
+                </details>
+                <details class="bg-white rounded-xl shadow-sm border border-sand-100 group">
+                    <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-forest-900 focus:outline-none focus:ring-2 focus:ring-forest-500 rounded-xl">
+                        <span>¿A qué hora es el check-in y check-out?</span>
+                        <span class="transition group-open:rotate-180"><i class="fa-solid fa-chevron-down text-sm text-forest-500"></i></span>
+                    </summary>
+                    <div class="text-forest-600 text-sm p-5 pt-0 border-t border-sand-50 mt-2 leading-relaxed">
+                        El check-in es a partir de las 15:00 hrs y el check-out es hasta las 11:00 hrs. Consulta por late check-out según disponibilidad.
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- Reseñas -->
+        <div class="bg-sand-100 py-20 border-t border-sand-200">
+            <div class="max-w-7xl mx-auto px-4 fade-in-up">
+                <h2 class="font-serif text-3xl text-center text-forest-900 mb-12">Lo que dicen nuestros huéspedes</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-sand-50">
+                        <div class="flex text-amber-500 text-sm mb-5 space-x-1"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-forest-800 mb-6 italic leading-relaxed">"El lugar perfecto para desconectar. La cabaña es preciosa, súper bien aislada y la tinaja en la noche mirando el bosque no tiene precio."</p>
+                        <div class="font-medium text-sm text-forest-900 flex items-center"><div class="w-8 h-8 rounded-full bg-forest-100 text-forest-800 flex items-center justify-center mr-3 font-bold text-xs">CV</div> Camila V., Santiago</div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-sand-50">
+                        <div class="flex text-amber-500 text-sm mb-5 space-x-1"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-forest-800 mb-6 italic leading-relaxed">"Increíble nivel de detalle. Pude teletrabajar perfecto con el internet y luego descansar rodeado de naturaleza. Volveremos sin duda."</p>
+                        <div class="font-medium text-sm text-forest-900 flex items-center"><div class="w-8 h-8 rounded-full bg-forest-100 text-forest-800 flex items-center justify-center mr-3 font-bold text-xs">RM</div> Roberto M., Concepción</div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-sand-50">
+                        <div class="flex text-amber-500 text-sm mb-5 space-x-1"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div>
+                        <p class="text-forest-800 mb-6 italic leading-relaxed">"Muy acogedor y limpio. La cama es de primer nivel. Recomiendo traer víveres ya que da tanta paz que no querrás salir a comprar."</p>
+                        <div class="font-medium text-sm text-forest-900 flex items-center"><div class="w-8 h-8 rounded-full bg-forest-100 text-forest-800 flex items-center justify-center mr-3 font-bold text-xs">DS</div> Daniela S., Valdivia</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="bg-forest-900 text-forest-100 py-12 text-center border-t border-forest-800 pb-28 md:pb-12">
+            <div class="flex justify-center items-center mb-6 opacity-70">
+                <i class="fa-solid fa-leaf text-xl mr-3"></i>
+                <span class="font-serif text-xl">El Refugio</span>
+            </div>
+            <p class="text-sm opacity-80 mb-3">&copy; 2026 Cabañas El Refugio. Todos los derechos reservados.</p>
+            
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 text-xs opacity-70 mb-6 px-4">
+                <a aria-label="Ver Políticas de Privacidad" href="politica-de-privacidad.html" class="hover:text-sand-100 transition underline underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-sand-100 rounded">Políticas de Privacidad</a>
+                <a aria-label="Ver Política de Cookies" href="cookies.html" class="hover:text-sand-100 transition underline underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-sand-100 rounded">Política de Cookies</a>
+                <a aria-label="Ver Términos de Uso" href="terminos.html" class="hover:text-sand-100 transition underline underline-offset-4 focus:outline-none focus-visible:ring-2 focus-visible:ring-sand-100 rounded">Términos de Uso</a>
+            </div>
+
+            <p class="text-xs opacity-50">Plataforma impulsada por Tiforti.</p>
+        </footer>
+
+        <!-- Botón Flotante WhatsApp -->
+        <a href="https://wa.me/56912345678" target="_blank" rel="noopener noreferrer" id="wa-float" class="fixed bottom-24 right-4 bg-green-600 text-white w-14 h-14 rounded-full shadow-2xl z-30 md:bottom-8 md:right-8 hover:bg-green-700 hover:scale-110 transition-all flex items-center justify-center focus:outline-none focus:ring-4 focus:ring-green-300" aria-label="Contactar por WhatsApp">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+        </a>
+
+        <!-- Barra Inferior Sticky para Móviles -->
+        <div class="fixed bottom-0 left-0 w-full bg-white border-t border-sand-200 p-4 flex justify-between items-center z-30 md:hidden shadow-[0_-10px_30px_-15px_rgba(0,0,0,0.2)] pb-safe transition-transform">
+            <div class="flex flex-col">
+                <span class="text-xs text-forest-600 font-medium uppercase tracking-wide">Desde</span>
+                <span class="font-serif text-xl text-forest-900 font-bold">$60.000<span class="text-xs font-sans font-normal text-forest-600"> /noche</span></span>
+            </div>
+            <a href="#reservar" class="bg-forest-900 text-white px-8 py-3 rounded-xl font-medium shadow-lg active:scale-95 transition-transform text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-forest-900">Reservar</a>
+        </div>
+    </div>
+
+    <!-- Banner de Cookies -->
+    <div id="cookie-banner" class="fixed bottom-24 left-4 right-4 md:left-8 md:right-auto md:max-w-md bg-white p-5 rounded-2xl shadow-2xl border border-sand-200 z-40 transform translate-y-[150%] opacity-0 transition-all duration-500">
+        <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-sand-100 rounded-full flex items-center justify-center text-forest-800 flex-shrink-0">
+                <i class="fa-solid fa-cookie-bite text-lg"></i>
+            </div>
+            <div>
+                <h4 class="font-serif font-semibold text-forest-900 text-sm">Valoramos tu privacidad</h4>
+                <p class="text-xs text-forest-600 mt-1 leading-relaxed">
+                    Utilizamos cookies esenciales para gestionar tus fechas y mejorar la experiencia de reserva.
+                </p>
+                <div class="mt-3 flex gap-2">
+                    <button onclick="acceptCookies()" class="bg-forest-900 hover:bg-forest-800 text-white text-xs px-4 py-2 rounded-lg font-medium transition">Aceptar</button>
+                    <a href="cookies.html" class="text-forest-700 hover:text-forest-900 text-xs px-3 py-2 font-medium underline">Más info</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación de Reserva -->
+    <div id="success-modal" class="fixed inset-0 bg-forest-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div id="modal-content" class="bg-white rounded-3xl max-w-md w-full p-8 text-center shadow-2xl transform scale-95 transition-transform duration-300 border border-sand-200">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto mb-5 text-2xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-forest-900 mb-2">¡Reserva Solicitada!</h3>
+            <p class="text-forest-600 text-sm mb-6 leading-relaxed">
+                <span id="success-detail">Hemos recibido los detalles de tu estadía. Te hemos enviado un correo con las instrucciones para completar el abono seguro.</span>
+            </p>
+            <div class="bg-sand-50 p-4 rounded-xl text-left text-xs space-y-2 mb-6 border border-sand-200">
+                <div class="flex justify-between"><span class="text-forest-600">Estado:</span> <span class="font-bold text-emerald-700">Abono Pendiente</span></div>
+                <div class="flex justify-between"><span class="text-forest-600">Ubicación:</span> <span class="font-medium text-forest-900">Cabañas El Refugio</span></div>
+            </div>
+            <a id="success-wa" target="_blank" rel="noopener" class="block w-full bg-green-500 hover:bg-green-600 text-white font-medium py-3 rounded-xl shadow transition mb-3"><i class="fa-brands fa-whatsapp mr-1"></i> Enviar detalle por WhatsApp</a>
+            <button onclick="closeModal()" class="w-full bg-forest-900 hover:bg-forest-800 text-white font-medium py-3 rounded-xl shadow transition">Entendido</button>
+        </div>
+    </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/l10n/es.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/repo.js"></script>
+  <script src="js/nucleo.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/sitio.js"></script>
+  <script src="js/galeria.js"></script>
+  <script src="js/reservas.js"></script>
+</body>
+</html>
